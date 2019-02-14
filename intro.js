@@ -421,7 +421,7 @@
     var nextStep = this._introItems[this._currentStep];
     var continueStep = true;
 
-    if (typeof (this._introBeforeChangeCallback) !== 'undefined') {
+    if (typeof (this._introBeforeChangeCallback) !== 'undefined' && nextStep) {
       continueStep = this._introBeforeChangeCallback.call(this, nextStep.element);
     }
 
