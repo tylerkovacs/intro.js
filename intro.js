@@ -642,6 +642,11 @@
 
     _addClass(tooltipLayer, 'introjs-' + currentTooltipPosition);
 
+    var forcedPosition = this._introItems[this._currentStep].forcedPosition;
+    if (forcedPosition) {
+      currentTooltipPosition = forcedPosition;
+    }
+
     switch (currentTooltipPosition) {
       case 'top-right-aligned':
         arrowLayer.className      = 'introjs-arrow bottom-right';
@@ -816,7 +821,7 @@
     */
 
     // Check for space below
-    if (targetElementRect.bottom + tooltipHeight + tooltipHeight > windowSize.height) {
+    if (targetElementRect.bottom + tooltipHeight > windowSize.height) {
       _removeEntry(possiblePositions, "bottom");
     }
 
